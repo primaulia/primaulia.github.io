@@ -17,4 +17,4 @@ gulp.task('browser-sync:dist', false, function() {
   browserSync(config.browserSync.dist);
 });
 
-// module.exports.reload = browserSync.reload;
+module.exports.reload = browserSync.reload;

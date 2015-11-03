@@ -18,19 +18,12 @@ html( lang="en" )
     )
   body
     +mainNav
-      
-    .container
-      h1 Yow - node template engine
-      #container.col
-        if youAreUsingJade
-          p You are amazing
-        else
-          p Get on it!
-        p.
-          Jade is a terse and simple
-          templating language with a
-          strong focus on performance
-          and powerful features.
+    
+    .container( role="main" )
+      .jumbotron
+        h1= homeTitle
+        h2= homeSubtitle
+        p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         
       script( src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' )
       script( src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js' )

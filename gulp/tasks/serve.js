@@ -9,10 +9,10 @@ gulp.task('serve', 'Serve project with livereload and file watching',function (c
   runSequence(
     // 'wiredep',
     // ['styles','templates', 'scripts'],
-    // 'modernizr',
     'templates',
+    // 'modernizr',
+    'browser-sync',
     'watch',
-    'browser-sync:dist',
     cb
   );
 });

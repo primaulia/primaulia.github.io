@@ -32,11 +32,21 @@ var rewriteRules = [
 // Templates task config
 module.exports.templates = {
   src: path.join(app, views, '*.jade'),
-  dest: dist,
+  srcBuild: path.join(tmp, 'jade/*.jade'),
+  dest: tmp,
+  destBuild: path.join(dist),
   cfg: {
     pretty: true,
     compileDebug: true
   }
+};
+
+// TemplatesData task config
+module.exports.templatesData = {
+  src: path.join(app, views, data, '/**/*.json'),
+  dest: app + '/views',
+  dataName: 'data.json',
+  dataPath: path.join(app, views, 'data.json')
 };
 
 // Watch task config
