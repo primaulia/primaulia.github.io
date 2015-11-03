@@ -1,0 +1,53 @@
+include ../mixins/_variables
+include ../mixins/_base
+
+doctype html
+html( lang="en" )
+head
+  meta(charset="utf-8")
+  title= siteTitle
+  meta( charset='utf8' )
+  meta( http-equiv='X-UA-Compatible', content='IE=edge' )
+  meta( name='viewport', content='width=device-width, initial-scale=1.0' )
+  meta( name='description', content= siteDesc )
+  link(rel="shortcut icon", href="/favicon.ico")
+  
+  //- Bootstrap Theme
+  link(
+    href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css", 
+    rel="stylesheet", integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==",
+    crossorigin="anonymous"    
+  )
+  
+  //- Optional theme
+  link(
+    href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css", 
+    rel="stylesheet",
+    integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX",
+    crossorigin="anonymous"      
+  )
+  
+  link(rel="stylesheet", href="/styles/theme.css")
+  
+body( role="document" )
+
+  include ../modules/_header
+
+  .container
+    block content
+
+  include ../modules/_footer
+  
+  //- build:js(./app/) /scripts/vendor.min.js -->
+  // bower:js
+  script(src='../bower_components/jquery/dist/jquery.js')
+  script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap.js')
+  // endbower
+  //- endbuild -->
+  //- build:js(.tmp) /scripts/plugins.min.js -->
+  //- endbuild -->
+  //- build:js(.tmp) /scripts/main.min.js -->
+  //- script(src="/scripts/main.js")
+  //- endbuild -->
+
+| </html>

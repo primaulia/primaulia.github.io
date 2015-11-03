@@ -1,36 +1,16 @@
-include variables
-include mixins
+include mixins/_variables
+include mixins/_base
+extends layouts/_default
 
-doctype html
-html( lang="en" )
-  head
-    title= siteTitle
-    meta( charset='utf8' )
-    meta( http-equiv='X-UA-Compatible', content='IE=edge' )
-    meta( name='viewport', content='width=device-width, initial-scale=1.0' )
-    meta( name='description', content= siteDesc )
-    
-    //- Bootstrap Theme
-    link(
-      href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css", 
-      rel="stylesheet", integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==",
-      crossorigin="anonymous"    
-    )
-  body
-    +mainNav
-      
-    .container
-      h1 Yow - node template engine
-      #container.col
-        if youAreUsingJade
-          p You are amazing
-        else
-          p Get on it!
-        p.
-          Jade is a terse and simple
-          templating language with a
-          strong focus on performance
-          and powerful features.
-        
-      script( src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' )
-      script( src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js' )
+block content
+  h1 Yow - node template engine
+  #container.col
+    if youAreUsingJade
+      p You are amazing
+    else
+      p Get on it!
+    p.
+      Jade is a terse and simple
+      templating language with a
+      strong focus on performance
+      and powerful features.

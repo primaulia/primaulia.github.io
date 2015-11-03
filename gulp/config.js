@@ -49,9 +49,21 @@ module.exports.templatesData = {
   dataPath: path.join(app, views, 'data.json')
 };
 
+// Styles task config
+module.exports.styles = {
+  src: path.join(app, styles, '*.scss'),
+  dest: path.join(tmp,styles),
+  sassCfg: {
+    sourcemap: true,
+    style: 'expanded',
+    lineNumbers: true
+  },
+  autoprefixerCfg: {browsers: ['last 2 version']}
+};
+
 // Watch task config
 module.exports.watch = {
-  // styles: path.join(app, styles, '/**/*.scss'),
+  styles: path.join(app, styles, '/**/*.scss'),
   jade: [
     path.join(app, views, '/**/*.jade'),
     path.join(app, views, data, '/**/*.json')

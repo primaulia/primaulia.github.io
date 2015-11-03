@@ -1,7 +1,7 @@
 //- Navbar mixins
 mixin nav(name, id, style)
 	- var style = (typeof style === 'undefined') ? "default" : style
-	nav( role="navigation", class=["navbar", "navbar-" + style] )
+	nav( role="navigation", class=["navbar", "navbar-" + style, "navbar-fixed-top"] )
 		.container
 			.navbar-header
 				button.navbar-toggle.collapsed( type="button", data-toggle="collapse", data-target="#" + id, aria-expanded="false", aria-controls="navbar")
@@ -34,7 +34,7 @@ mixin nav_header
 		block
 		
 mixin mainNav 
-	+nav( "Project name", "dropdown_menu", "inverse" )
+	+nav( "Project name", "navbar", "inverse" )
 		+nav_item( "/", "active" ) Home
 		+nav_item_dropdown( "#" )( label="Projects" )
 			+nav_item( "#" ) Action
