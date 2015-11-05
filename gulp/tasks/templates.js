@@ -23,6 +23,5 @@ gulp.task('templates', function() {
     //   return JSON.parse(fs.readFileSync(config.templatesData.dataPath));
     // }))
     .pipe(jade(config.templates.cfg))
-    .pipe(notify({ title: 'Done', message: 'Converted Jade ✔' }))
     .pipe(gulp.dest(dest));
 });

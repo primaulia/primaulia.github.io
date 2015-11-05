@@ -1,7 +1,8 @@
 //- Navbar mixins
-mixin nav(name, id, style)
+mixin nav(name, id, style, fixed)
 	- var style = (typeof style === 'undefined') ? "default" : style
-	nav( role="navigation", class=["navbar", "navbar-" + style, "navbar-fixed-top"] )
+	- var fixed = (fixed) ? "navbar-fixed-top" : ""; 
+	nav( role="navigation", class=["navbar", "navbar-" + style, fixed] )
 		.container
 			.navbar-header
 				button.navbar-toggle.collapsed( type="button", data-toggle="collapse", data-target="#" + id, aria-expanded="false", aria-controls="navbar")
@@ -9,15 +10,11 @@ mixin nav(name, id, style)
 					span.icon-bar
 					span.icon-bar
 					span.icon-bar
-				a.navbar-brand(href="#")= siteBrand
+				a.navbar-brand(href="#")= name
 
 			.collapse.navbar-collapse( id=id )
 				ul.nav.navbar-nav
 					block
-
-mixin nav_item(href, active)
-	li(class=active): a( href=href )
-		block
 
 mixin nav_item_dropdown(href, active)
 	li(class=["dropdown", active])
@@ -33,19 +30,24 @@ mixin nav_header
 	li.dropdown-header
 		block
 		
-mixin mainNav 
-  if currentPage
-	+nav( "Project name", "navbar", "inverse" )
-		+nav_item( "/", "active" ) Home
-		+nav_item_dropdown( "#" )( label="Projects" )
-			+nav_item( "#" ) Action
-			+nav_item( "#" ) Another action
-			+nav_item( "#" ) Something else here
-			+nav_divider
-			+nav_header Nav header
-			+nav_item( "#" ) Separated link
-			+nav_item( "#" ) One more separated link
-		+nav_item( "about.html" ) About
-		+nav_item( "contact.html" ) Contact
-		+nav_item( "guide.html" ) Guide
+mixin mainNav(name, style, fixed)
+	+nav( name, "navbar", style, fixed )
+		each val, key in pages
+			if currentPage == key
+				li.active
+					a( href=val )= key
+			else 
+				li
+					a( href=val )= key
+					
+mixin mixNav(name, style, fixed)
+	+nav( name, "navbar", style, fixed )
+		each val, key in pages
+			if currentPage == key
+				li.active
+					a( href=val )= key
+			else 
+				li
+					a( href=val )= key
+					
 //- End navbar mixins

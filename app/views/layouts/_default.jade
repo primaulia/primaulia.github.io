@@ -30,13 +30,13 @@ head
   link(rel="stylesheet", href="/styles/theme.css")
   
 body( role="document" )
-
-  include ../modules/_header
+  
+  block header
 
   .container
     block content
 
-  include ../modules/_footer
+  block footer
   
   //- build:js(./app/) /scripts/vendor.min.js -->
   // bower:js
